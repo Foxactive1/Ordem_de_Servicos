@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Ordens de Serviço</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <h1>Cadastro de Ordens de Serviço</h1>
+    <form id="osForm">
+        <label for="clienteOS">Cliente..................:</label>
+        <select id="clienteOS"></select>
+        <br>
+        <label for="descricaoOS">Descrição Serviço:</label>
+        <input type="text" id="descricaoOS" required>
+        
+        <label for="statusOS">Status...................:</label>
+        <select id="statusOS">
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+        </select>
+        <br>
+        <br> 
+        <button type="submit">Salvar OS</button>
+    </form>
+    <h2>Lista de Ordens de Serviço</h2>
+    <ul id="listaOS"></ul>
+
+    <script src="./scripts/os.js"></script>
+</body>
+</html>

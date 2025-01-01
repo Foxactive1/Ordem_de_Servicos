@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="./scripts/relatorios.js" defer></script>
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #statusMessage {
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatórios</h1>
+    
+    <form id="relatorioForm" aria-labelledby="relatorioFormTitle">
+        <h2 id="relatorioFormTitle">Gerar Relatório</h2>
+        <label for="clienteRelatorio">Selecione um Cliente:</label>
+        <select id="clienteRelatorio" aria-required="true" required></select>
+        
+            <button type="submit">Gerar Relatório</button>
+        <p id="statusMessage"></p>
+    </form>
+
+    <h2>Produtos Comprados pelo Cliente</h2>
+    <table id="produtosClienteTable" class="table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Subtotal (R$)</th>
+            </tr>
+        </thead>
+        <tbody id="produtosCliente"></tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Total</th>
+                <th id="totalProdutosCliente">R$ 0.00</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Serviços Prestados ao Cliente</h2>
+    <table id="servicosClienteTable" class="table">
+        <thead>
+            <tr>
+                <th>Serviço</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="servicosCliente"></tbody>
+    </table>
+
+    <h2>Total de Vendas do Cliente</h2>
+    <p id="totalVendasCliente">R$ 0.00</p>
+
+    <h2>Saída Total de Produtos</h2>
+    <table id="saidaProdutosTable" class="table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade Total Vendida</th>
+            </tr>
+        </thead>
+        <tbody id="saidaProdutos"></tbody>
+    </table>
+
+    <button id="exportarCsv">Exportar Relatório para CSV</button>
+    <button id="exportarPdf">Exportar Relatório para PDF</button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            carregarClientesRelatorio();
+        });
+    </script>
+</body>
+</html>
