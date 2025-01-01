@@ -1,15 +1,30 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --background-color: #f0f0f0;
+    --card-background-color: #fff;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-shadow-color: rgba(0, 0, 0, 0.15);
+    --focus-outline-color: #0056b3;
+    --font-family: 'Arial', sans-serif;
+    --font-size-base: 16px;
+    --font-size-large: 24px;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
+    color: #333;
+    line-height: 1.6;
 }
 
 header h1 {
-    color: #007bff;
+    color: var(--primary-color);
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: var(--font-size-large);
 }
 
 nav ul {
@@ -18,42 +33,52 @@ nav ul {
 }
 
 nav ul li {
-    background-color: #fff;
+    background-color: var(--card-background-color);
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 4px;
-    border-left: 4px solid #007bff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 0 5px var(--box-shadow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav ul li:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px var(--hover-shadow-color);
 }
 
 nav a {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     transition: color 0.3s ease;
 }
 
 nav a:hover {
     text-decoration: underline;
-    color: #0056b3;
+    color: var(--secondary-color);
 }
 
 a:focus, button:focus {
-    outline: 2px dashed #0056b3;
+    outline: 2px dashed var(--focus-outline-color);
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--card-background-color);
     border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px var(--box-shadow-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    nav ul li {
+        padding: 12px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -63,5 +88,13 @@ a:focus, button:focus {
 
     nav ul li {
         padding: 8px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
     }
 }
